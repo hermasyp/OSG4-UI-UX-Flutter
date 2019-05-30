@@ -24,7 +24,7 @@ class _AvengerListState extends State<AvengerList> {
 
   Widget appBar() {
     return AppBar(
-      elevation: 0.1,
+      elevation: 8.0,
       backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
       title: Text(widget.title),
     );
@@ -50,32 +50,43 @@ class _AvengerListState extends State<AvengerList> {
             child: Column(
               children: <Widget>[
                 Image.network(widget.avengers[index].imgPath),
-                ListTile(
-                  title: Text(
-                    widget.avengers[index].name,
-                    style: TextStyle(
-                        fontSize: 20.0,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  subtitle: Row(
-                    children: <Widget>[
-                      Text(widget.avengers[index].slogan,
-                          style: TextStyle(color: Colors.white))
-                    ],
-                  ),
-                ),
                 Container(
                   margin: new EdgeInsets.all(8.0),
-                  child: Text(
-                    widget.avengers[index].details,
-                    textAlign: TextAlign.justify,
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        widget.avengers[index].name,
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Text(
+                        widget.avengers[index].slogan,
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Container(
+                        margin: new EdgeInsets.only(top: 8.0),
+                        child: Text(
+                          widget.avengers[index].details,
+                          textAlign: TextAlign.justify,
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
             )));
   }
+
 }
